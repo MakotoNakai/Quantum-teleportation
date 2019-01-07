@@ -14,9 +14,7 @@ IBMQ.backends()
 ba = 2
 
 #Qubits as Bob
-bb = 2
-
-
+bb = 1
 cn = 1
 
 qa = QuantumRegister(ba)
@@ -26,8 +24,11 @@ qca  = QuantumCircuit(qa,c)
 qcb  = QuantumCircuit(qb,c)
 qc = qca+qcb
 
-#Suppose Alice is going to send |+> state to Bob
-qc.h(qa[0])
+#Suppose Alice is going to send |1> state to Bob
+#If you want to send a |0> state, just remove the line just below.   
+#Then put a H gate for|+> gate,  
+#HZ gate for |-> gate
+qc.x(qa[0])
 qc.barrier()
 
 qc.h(qa[1])
@@ -35,10 +36,7 @@ qc.cx(qa[1],qb[0])
 qc.cx(qa[0],qa[1])
 qc.h(qa[0])
 qc.cx(qa[1],qb[0])
-qc.cz(qa[0],qb[0])
 qc.measure(qb[0],c[0])
-	
-qc.draw()
 
 #Put the real device first and put a simulator later.	
 backends = ['ibmq_20_tokyo', 'qasm_simulator']
