@@ -46,4 +46,6 @@ qc.measure(qb[0],c[0])
 Here is the result on the QASM simulator.  
 ![quantum_teleportation_sim](https://user-images.githubusercontent.com/45162150/50746950-cc9f2980-1274-11e9-8899-fb46e81c3c39.png)
 
+Here is the result on a real device(ibmq_20_tokyo)  
+![quantum_teleportation_tokyo](https://user-images.githubusercontent.com/45162150/50747001-07a15d00-1275-11e9-821d-bc911da9de95.png)
 
